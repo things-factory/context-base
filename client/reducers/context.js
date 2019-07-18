@@ -1,9 +1,4 @@
-import {
-  APPEND_CONTEXT_TOOL,
-  REMOVE_CONTEXT_TOOL,
-  SHOW_CONTEXT_OVERLAY,
-  HIDE_CONTEXT_OVERLAY
-} from '../actions/context'
+import { APPEND_CONTEXT_TOOL, REMOVE_CONTEXT_TOOL } from '../actions/context'
 
 const INITIAL_STATE = {
   contextTools: [],
@@ -24,23 +19,6 @@ const context = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         contextTools: state.contextTools.filter(i => i !== action.tool)
-      }
-
-    case SHOW_CONTEXT_OVERLAY:
-      return {
-        ...state,
-        overlay: {
-          show: true,
-          template: action.template
-        }
-      }
-
-    case HIDE_CONTEXT_OVERLAY:
-      return {
-        ...state,
-        overlay: {
-          show: false
-        }
       }
 
     default:
