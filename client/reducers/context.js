@@ -1,10 +1,7 @@
 import { APPEND_CONTEXT_TOOL, REMOVE_CONTEXT_TOOL } from '../actions/context'
 
 const INITIAL_STATE = {
-  contextTools: [],
-  overlay: {
-    show: false
-  }
+  tools: []
 }
 
 const context = (state = INITIAL_STATE, action) => {
@@ -12,13 +9,13 @@ const context = (state = INITIAL_STATE, action) => {
     case APPEND_CONTEXT_TOOL:
       return {
         ...state,
-        contextTools: [...state.contextTools, action.tool]
+        tools: [...state.tools, action.tool]
       }
 
     case REMOVE_CONTEXT_TOOL:
       return {
         ...state,
-        contextTools: state.contextTools.filter(i => i !== action.tool)
+        tools: state.tools.filter(i => i !== action.tool)
       }
 
     default:
